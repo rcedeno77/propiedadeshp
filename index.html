@@ -7,7 +7,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary: #0056b3; /* Color azul estilo corporativo */
+            --primary: #0056b3;
             --secondary: #00a8cc;
             --bg: #f4f7f6;
             --surface: #ffffff;
@@ -21,7 +21,6 @@
 
         body { background-color: var(--bg); color: var(--text); padding-bottom: 50px; }
 
-        /* UI/UX: Header Premium */
         header {
             background: var(--surface);
             padding: 20px;
@@ -37,101 +36,55 @@
 
         h1 { font-size: 1.5rem; color: var(--primary); text-align: center; }
 
-        /* Buscador optimizado (SEO / UX) */
-        .search-bar {
-            width: 100%;
-            max-width: 600px;
-            position: relative;
-        }
-
+        .search-bar { width: 100%; max-width: 600px; position: relative; }
         .search-bar input {
-            width: 100%;
-            padding: 15px 20px 15px 45px;
-            border-radius: 30px;
-            border: 2px solid var(--border);
-            font-size: 1rem;
-            outline: none;
-            transition: 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            width: 100%; padding: 15px 20px 15px 45px; border-radius: 30px;
+            border: 2px solid var(--border); font-size: 1rem; outline: none;
+            transition: 0.3s ease; box-shadow: 0 2px 10px rgba(0,0,0,0.02);
         }
-
         .search-bar input:focus { border-color: var(--primary); box-shadow: 0 4px 15px rgba(0,86,179,0.1); }
         .search-bar i { position: absolute; left: 18px; top: 18px; color: var(--text-light); }
 
-        /* Grid de Propiedades */
         .container {
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
+            max-width: 1200px; margin: 30px auto; padding: 0 20px;
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;
         }
 
-        /* Tarjetas (UI Design) */
         .card {
-            background: var(--surface);
-            border-radius: 16px;
-            padding: 20px;
-            border: 1px solid var(--border);
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+            background: var(--surface); border-radius: 16px; padding: 20px;
+            border: 1px solid var(--border); cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; gap: 10px;
         }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-            border-color: var(--secondary);
-        }
-
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); border-color: var(--secondary); }
         .card h3 { color: var(--primary); font-size: 1.2rem; }
         .card p { color: var(--text-light); font-size: 0.9rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
-        /* Modal (Pop-up) para copiar */
         .modal-overlay {
             position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.5);
-            display: none; justify-content: center; align-items: center;
+            background: rgba(0,0,0,0.5); display: none; justify-content: center; align-items: center;
             z-index: 1000; padding: 20px; backdrop-filter: blur(4px);
         }
 
         .modal {
-            background: var(--surface);
-            width: 100%; max-width: 600px;
-            border-radius: 20px;
-            padding: 30px;
-            position: relative;
-            animation: slideUp 0.3s ease;
+            background: var(--surface); width: 100%; max-width: 600px; border-radius: 20px;
+            padding: 30px; position: relative; animation: slideUp 0.3s ease;
         }
-
         @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
         .close-btn { position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-light); }
         
         .preview-box {
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 20px;
-            margin: 20px 0;
-            white-space: pre-wrap;
-            font-size: 0.95rem;
-            line-height: 1.5;
-            border: 1px solid var(--border);
-            max-height: 50vh;
-            overflow-y: auto;
+            background: #f8f9fa; border-radius: 12px; padding: 20px; margin: 20px 0;
+            white-space: pre-wrap; font-size: 0.95rem; line-height: 1.5; border: 1px solid var(--border);
+            max-height: 50vh; overflow-y: auto;
         }
 
-        /* Botón de copiar interactivo */
         .btn-copy {
             width: 100%; padding: 15px; border-radius: 12px; border: none;
             background: var(--primary); color: white; font-size: 1.1rem; font-weight: 600;
             cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 10px;
             transition: background 0.3s;
         }
-
         .btn-copy:hover { background: #004494; }
         .btn-copy.success { background: var(--success); }
 
@@ -148,7 +101,7 @@
     </header>
 
     <div class="container" id="propiedadesGrid">
-        <!-- Las propiedades se cargarán aquí desde JavaScript -->
+        <!-- Las propiedades se cargarán aquí -->
     </div>
 
     <!-- Modal para ver y copiar -->
@@ -164,345 +117,340 @@
     </div>
 
     <script>
-        // COMO ADMINISTRADOR DE BASES DE DATOS / BACKEND: 
-        // Aquí es donde agregarás tus propiedades. Te he dejado 3 de ejemplo.
-        // Solo debes copiar la estructura para añadir más.
+        // Arreglado: Se eliminaron los corchetes dobles [[ ]] que causaban el error.
         const propiedades = [
-            [
-  {
-    "nombre": "Villa Maredua, Nueva Gorgona, Malibu",
-    "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Nueva Gorgona y con capacidad para hasta 21 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/villa-maredua-nueva-gorgona-malibu/"
-  },
-  {
-    "nombre": "Domo & Villa en la montaña / Brisas de Chicá",
-    "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Chame y con capacidad para hasta 16 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/domo-villa-en-la-montana-brisas-de-chica/"
-  },
-  {
-    "nombre": "Frente al mar Playa Serena, Gorgona ph Bahia",
-    "descripcion": "🌊 Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Playa Serena y con capacidad para hasta 6 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/frente-al-mar-playa-serena-gorgona-ph-bahia/"
-  },
-  {
-    "nombre": "Casa Malu Malibu · Refugio Cerca de la Playa",
-    "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Nueva Gorgona y con capacidad para hasta 10 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/casa-malu-malibu-refugio-cerca-de-la-playa/"
-  },
-  {
-    "nombre": "Casa Tequila | Alojamiento frente a la playa en Playa Malibú",
-    "descripcion": "🌊 Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Playa Malibú y con capacidad para hasta 10 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/casa-tequila-alojamiento-frente-a-la-playa-en-playa-malibu/"
-  },
-  {
-    "nombre": "MoMa Malibu, Beach Front",
-    "descripcion": "🌊 Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Malibu y con capacidad para hasta 20 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/moma-malibu-beach-front/"
-  },
-  {
-    "nombre": "Casa de Las Palmas, Nueva Gorgona",
-    "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Nueva Gorgona y con capacidad para hasta 24 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/casa-de-las-palmas-nueva-gorgona/"
-  },
-  {
-    "nombre": "Casa Condal - Tu moderno y elegante refugio en Cerro Azul",
-    "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Cerro Azul y con capacidad para hasta 4 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/casa-condal-tu-moderno-y-elegante-refugio-en-cerro-azul/"
-  },
-  {
-    "nombre": "Casa Vianka, cabaña con las mejores vistas a la montaña",
-    "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Santa Fe y con capacidad para hasta 4 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/casa-vianka-cabana-con-las-mejores-vistas-a-la-montana/"
-  },
-  {
-    "nombre": "Vista Mar Marina, Terrazas luxury #1",
-    "descripcion": "🌊 Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Vista Mar Beach y con capacidad para hasta 16 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/vista-mar-marina-terrazas-luxury-1/"
-  },
-  {
-    "nombre": "Royal Palm - Gorgona",
-    "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Gorgona y con capacidad para hasta 4 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/royal-palm-gorgona/"
-  },
-  {
-    "nombre": "Finca privada de estilo resort cerca de la playa - Casa del Rey",
-    "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en San Jose y con capacidad para hasta 24 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/finca-privada-de-estilo-resort-cerca-de-la-playa-casa-del-rey/"
-  },
-  {
-    "nombre": "Alojamiento estilo boutique único en Punta Barco - Casa Nia",
-    "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Carretera Panamericana y con capacidad para hasta 14 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/alojamiento-estilo-boutique-unico-en-punta-barco-casa-nia/"
-  },
-  {
-    "nombre": "Pika Cabins - La Laguna de San Carlos",
-    "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Laguna San Carlos y con capacidad para hasta 2 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/pika-cabins-la-laguna-de-san-carlos/"
-  },
-  {
-    "nombre": "Villa Sonia - Altos del Maria",
-    "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Altos del Maria y con capacidad para hasta 5 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/villa-sonia-altos-del-maria/"
-  },
-  {
-    "nombre": "Beachfront, Villa Home, Malibú",
-    "descripcion": "🌊 Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Gorgona y con capacidad para hasta 14 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/beachfront-villa-home-malibu/"
-  },
-  {
-    "nombre": "Bob Highland Home – Cerro Punta, Chiriqui",
-    "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Cerro Punta y con capacidad para hasta 10 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/bob-highland-home-cerro-punta-chiriqui/"
-  },
-  {
-    "nombre": "Casa Sierra Dorada - vía La Laguna de San Carlos",
-    "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Provincia de Coclé y con capacidad para hasta 15 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/casa-sierra-dorada-via-la-laguna-de-san-carlos/"
-  },
-  {
-    "nombre": "Villa Las Valentinas @cerroazul",
-    "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Altos De Cerro Azul y con capacidad para hasta 12 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/villa-las-valentinas-cerroazul/"
-  },
-  {
-    "nombre": "Casa Exclusiva en la Montaña \"Casa Blanca Chica\"",
-    "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Chame y con capacidad para hasta 16 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/casa-exclusiva-en-la-montana-casa-blanca-chica/"
-  },
-  {
-    "nombre": "Villa Azul Condo @PlayaBlanca",
-    "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Playa Blanca y con capacidad para hasta 6 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/villa-azul-condo-playablanca/"
-  },
-  {
-    "nombre": "Alquiler Vacacional Villa Azul, San José.",
-    "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en San Carlos y con capacidad para hasta 15 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/alquiler-vacacional-villa-azul-san-jose/"
-  },
-  {
-    "nombre": "Tamarindo Suite Coronado",
-    "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Coronado y con capacidad para hasta 8 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/tamarindo-suite-coronado/"
-  },
-  {
-    "nombre": "Casa frente al mar – Playa El Jobo, Las tablas, Los Santos",
-    "descripcion": "🌊 Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Las Tablas y con capacidad para hasta 8 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/casa-frente-al-mar-playa-el-jobo-las-tablas-los-santos/"
-  },
-  {
-    "nombre": "CASA DE CAMPO MIA, GORGONA",
-    "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Gorgona y con capacidad para hasta 25 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/casa-de-campo-mia-gorgona/"
-  },
-  {
-    "nombre": "CABAÑA EN LA MONTAÑA ALTOS DEL MARÍA C&M",
-    "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Altos del Maria y con capacidad para hasta 19 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/cabana-en-la-montana-altos-del-maria-cm/"
-  },
-  {
-    "nombre": "Casa Vacacional de Playa en Coronado. Temporadas largas y cortas",
-    "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Coronado y con capacidad para hasta 30 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/casa-vacacional-de-playa-en-coronado-temporadas-largas-y-cortas/"
-  },
-  {
-    "nombre": "Villa Paraiso de Montana en Altos del María",
-    "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Altos del Maria y con capacidad para hasta 10 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/villa-paraiso-de-montana-en-altos-del-maria/"
-  },
-  {
-    "nombre": "CASA DE PLAYA VILLAMAR.",
-    "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Avenida Nueva Gorgona y con capacidad para hasta 25 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/casa-de-playa-villamar/"
-  },
-  {
-    "nombre": "Villa Tungara - Hermosa posada frente a la vía Panamericana",
-    "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Bejuco y con capacidad para hasta 45 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/villa-tungara-hermosa-posada-frente-a-la-via-panamericana/"
-  },
-  {
-    "nombre": "Villa del Monarca: Refugio de Montaña con Vistas, Naturaleza y Confort",
-    "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Altos Del Maria y con capacidad para hasta 13 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/villa-del-monarca-refugio-de-montana-con-vistas-naturaleza-y-confort/"
-  },
-  {
-    "nombre": "Coraldreamspty - Playa blanca",
-    "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Playa Blanca y con capacidad para hasta 9 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/coraldreamspty-playa-blanca/"
-  },
-  {
-    "nombre": "Casa Fofo",
-    "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Calle La Ensenada y con capacidad para hasta 8 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/casa-fofo/"
-  },
-  {
-    "nombre": "Casa Croak, Altos del Maria",
-    "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Altos del Maria y con capacidad para hasta 7 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/casa-croak-altos-del-maria/"
-  },
-  {
-    "nombre": "Hacienda Mi Montañita",
-    "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Altos De Cerro Azul y con capacidad para hasta 35 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/hacienda-mi-montanita/"
-  },
-  {
-    "nombre": "Finca Shalom",
-    "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Las Uvas y con capacidad para hasta 15 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/finca-shalom/"
-  },
-  {
-    "nombre": "KasaKai Fantastic Villa, Portobelo, Colón",
-    "descripcion": "🌊 Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Portobelo y con capacidad para hasta 20 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/kasakai-fantastic-villa-portobelo-colon/"
-  },
-  {
-    "nombre": "CasAna - San Carlos",
-    "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en El Higo y con capacidad para hasta 6 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/casana-san-carlos/"
-  },
-  {
-    "nombre": "Villa Águeda Decameron Panamá",
-    "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Decameron y con capacidad para hasta 10 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/villa-agueda-decameron-panama/"
-  },
-  {
-    "nombre": "Gatun Lake Lodge",
-    "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Provincia de Panamá Oeste y con capacidad para hasta 48 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/gatun-lake-lodge/"
-  },
-  {
-    "nombre": "El Rancho de Isa- Escapada con piscina y naturaleza en San Carlos",
-    "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en San Carlos y con capacidad para hasta 8 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/el-rancho-de-isa-escapada-con-piscina-y-naturaleza-en-san-carlos/"
-  },
-  {
-    "nombre": "Villa Iren - Rivera Pacífica",
-    "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Provincia de Coclé y con capacidad para hasta 8 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/villa-iren-rivera-pacifica/"
-  },
-  {
-    "nombre": "Chagres River Lodge - Colón",
-    "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Santa Rosa y con capacidad para hasta 10 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/chagres-river-lodge-colon/"
-  },
-  {
-    "nombre": "Vista Pacífica | Jacuzzi, Piscina, Vistas Únicas y Alexa",
-    "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Las Uvas y con capacidad para hasta 13 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/vista-pacifica-jacuzzi-piscina-vistas-unicas-y-alexa/"
-  },
-  {
-    "nombre": "Cabaña de montaña en Altos del María",
-    "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Altos del Maria y con capacidad para hasta 6 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/cabana-de-montana-en-altos-del-maria/"
-  },
-  {
-    "nombre": "Villa María Josefa - La Laguna de San Carlos",
-    "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en San Carlos y con capacidad para hasta 8 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/villa-maria-josefa-la-laguna-de-san-carlos/"
-  },
-  {
-    "nombre": "Casa Carey Lajas Pty",
-    "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Las Lajas y con capacidad para hasta 10 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/casa-carey-lajas-pty/"
-  },
-  {
-    "nombre": "Casa Luna - Portobelo, Colón",
-    "descripcion": "🌊 Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Portobelo y con capacidad para hasta 15 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/casa-luna-portobelo-colon/"
-  },
-  {
-    "nombre": "Finca San José - Boquete",
-    "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Avenida Circunvalación Volcancito y con capacidad para hasta 12 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/finca-san-jose-boquete/"
-  },
-  {
-    "nombre": "Casa Elalto Panamá",
-    "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en San Carlos y con capacidad para hasta 4 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/casa-elalto-panama/"
-  },
-  {
-    "nombre": "The Azul Heights House",
-    "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Altos de Cerro Azul y con capacidad para hasta 16 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/the-azul-heights-house/"
-  },
-  {
-    "nombre": "Las Nubes de Chica",
-    "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Chica y con capacidad para hasta 4 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/las-nubes-de-chica/"
-  },
-  {
-    "nombre": "Casa de Campo ECO aventura",
-    "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Cerro Azul y con capacidad para hasta 16 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/casa-de-campo-eco-aventura/"
-  },
-  {
-    "nombre": "Espaciosa villa con vista al mar *Las Veraneras* - Vista Mar, San Carlos",
-    "descripcion": "🌊 Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Terraza 2 y con capacidad para hasta 12 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/espaciosa-villa-con-vista-al-mar-las-veraneras-vista-mar-san-carlos/"
-  },
-  {
-    "nombre": "Cabañas Alci - Altos de Cerro azul",
-    "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Altos De Cerro Azul y con capacidad para hasta 2 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/cabanas-alci-altos-de-cerro-azul/"
-  },
-  {
-    "nombre": "Apto. Playa Caracol @tropicalpty – Chame",
-    "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Chame y con capacidad para hasta 4 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/apto-playa-caracol-tropicalpty-chame/"
-  },
-  {
-    "nombre": "Bala Beach Resort – María Chiquita, Colón",
-    "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Playa María Chiquita y con capacidad para hasta 5 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/bala-beach-resort-maria-chiquita-colon/"
-  },
-  {
-    "nombre": "Condo en Playa Caracol Residences & Beach Club",
-    "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Chame y con capacidad para hasta 5 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/condo-en-playa-caracol-residences-beach-club/"
-  },
-  {
-    "nombre": "Casa de playa en Coronado",
-    "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Coronado Mall y con capacidad para hasta 12 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/casa-de-playa-en-coronado/"
-  },
-  {
-    "nombre": "Casa de playa, vista al océano y piscina en la azotea - Costa Esmeralda",
-    "descripcion": "🌊 Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Playa Costa Esmeralda y con capacidad para hasta 25 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/casa-de-playa-vista-al-oceano-y-piscina-en-la-azotea-costa-esmeralda/"
-  },
-  {
-    "nombre": "Moderna Casa en Altos de María",
-    "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Altos del Maria y con capacidad para hasta 10 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/moderna-casa-en-altos-de-maria/"
-  },
-  {
-    "nombre": "Sonny island Resort - Isla Bolaños",
-    "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Balboa y con capacidad para hasta 2 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/sonny-island-resort-isla-bolanos/"
-  },
-  {
-    "nombre": "Bayano Caves-Cabañas & Tipi Campings",
-    "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Panamá y con capacidad para hasta 2 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/bayano-caves-cabanas-tipi-campings/"
-  },
-  {
-    "nombre": "Casa Carey - Las Lajas",
-    "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Provincia de Chiriquí y con capacidad para hasta 12 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/casa-carey-las-lajas/"
-  },
-  {
-    "nombre": "Apartamento de playa en Gorgona - PH Bahia",
-    "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Gorgona y con capacidad para hasta 5 huéspedes.",
-    "enlace": "https://hospedatepanama.com/propiedades/apartamento-de-playa-en-gorgona-ph-bahia/"
-  }  ]
-
+            {
+                "nombre": "Villa Maredua, Nueva Gorgona, Malibu",
+                "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Nueva Gorgona y con capacidad para hasta 21 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/villa-maredua-nueva-gorgona-malibu/"
+            },
+            {
+                "nombre": "Domo & Villa en la montaña / Brisas de Chicá",
+                "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Chame y con capacidad para hasta 16 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/domo-villa-en-la-montana-brisas-de-chica/"
+            },
+            {
+                "nombre": "Frente al mar Playa Serena, Gorgona ph Bahia",
+                "descripcion": "🌊 Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Playa Serena y con capacidad para hasta 6 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/frente-al-mar-playa-serena-gorgona-ph-bahia/"
+            },
+            {
+                "nombre": "Casa Malu Malibu · Refugio Cerca de la Playa",
+                "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Nueva Gorgona y con capacidad para hasta 10 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/casa-malu-malibu-refugio-cerca-de-la-playa/"
+            },
+            {
+                "nombre": "Casa Tequila | Alojamiento frente a la playa en Playa Malibú",
+                "descripcion": "🌊 Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Playa Malibú y con capacidad para hasta 10 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/casa-tequila-alojamiento-frente-a-la-playa-en-playa-malibu/"
+            },
+            {
+                "nombre": "MoMa Malibu, Beach Front",
+                "descripcion": "🌊 Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Malibu y con capacidad para hasta 20 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/moma-malibu-beach-front/"
+            },
+            {
+                "nombre": "Casa de Las Palmas, Nueva Gorgona",
+                "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Nueva Gorgona y con capacidad para hasta 24 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/casa-de-las-palmas-nueva-gorgona/"
+            },
+            {
+                "nombre": "Casa Condal - Tu moderno y elegante refugio en Cerro Azul",
+                "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Cerro Azul y con capacidad para hasta 4 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/casa-condal-tu-moderno-y-elegante-refugio-en-cerro-azul/"
+            },
+            {
+                "nombre": "Casa Vianka, cabaña con las mejores vistas a la montaña",
+                "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Santa Fe y con capacidad para hasta 4 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/casa-vianka-cabana-con-las-mejores-vistas-a-la-montana/"
+            },
+            {
+                "nombre": "Vista Mar Marina, Terrazas luxury #1",
+                "descripcion": "🌊 Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Vista Mar Beach y con capacidad para hasta 16 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/vista-mar-marina-terrazas-luxury-1/"
+            },
+            {
+                "nombre": "Royal Palm - Gorgona",
+                "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Gorgona y con capacidad para hasta 4 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/royal-palm-gorgona/"
+            },
+            {
+                "nombre": "Finca privada de estilo resort cerca de la playa - Casa del Rey",
+                "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en San Jose y con capacidad para hasta 24 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/finca-privada-de-estilo-resort-cerca-de-la-playa-casa-del-rey/"
+            },
+            {
+                "nombre": "Alojamiento estilo boutique único en Punta Barco - Casa Nia",
+                "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Carretera Panamericana y con capacidad para hasta 14 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/alojamiento-estilo-boutique-unico-en-punta-barco-casa-nia/"
+            },
+            {
+                "nombre": "Pika Cabins - La Laguna de San Carlos",
+                "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Laguna San Carlos y con capacidad para hasta 2 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/pika-cabins-la-laguna-de-san-carlos/"
+            },
+            {
+                "nombre": "Villa Sonia - Altos del Maria",
+                "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Altos del Maria y con capacidad para hasta 5 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/villa-sonia-altos-del-maria/"
+            },
+            {
+                "nombre": "Beachfront, Villa Home, Malibú",
+                "descripcion": "🌊 Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Gorgona y con capacidad para hasta 14 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/beachfront-villa-home-malibu/"
+            },
+            {
+                "nombre": "Bob Highland Home – Cerro Punta, Chiriqui",
+                "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Cerro Punta y con capacidad para hasta 10 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/bob-highland-home-cerro-punta-chiriqui/"
+            },
+            {
+                "nombre": "Casa Sierra Dorada - vía La Laguna de San Carlos",
+                "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Provincia de Coclé y con capacidad para hasta 15 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/casa-sierra-dorada-via-la-laguna-de-san-carlos/"
+            },
+            {
+                "nombre": "Villa Las Valentinas @cerroazul",
+                "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Altos De Cerro Azul y con capacidad para hasta 12 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/villa-las-valentinas-cerroazul/"
+            },
+            {
+                "nombre": "Casa Exclusiva en la Montaña \"Casa Blanca Chica\"",
+                "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Chame y con capacidad para hasta 16 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/casa-exclusiva-en-la-montana-casa-blanca-chica/"
+            },
+            {
+                "nombre": "Villa Azul Condo @PlayaBlanca",
+                "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Playa Blanca y con capacidad para hasta 6 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/villa-azul-condo-playablanca/"
+            },
+            {
+                "nombre": "Alquiler Vacacional Villa Azul, San José.",
+                "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en San Carlos y con capacidad para hasta 15 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/alquiler-vacacional-villa-azul-san-jose/"
+            },
+            {
+                "nombre": "Tamarindo Suite Coronado",
+                "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Coronado y con capacidad para hasta 8 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/tamarindo-suite-coronado/"
+            },
+            {
+                "nombre": "Casa frente al mar – Playa El Jobo, Las tablas, Los Santos",
+                "descripcion": "🌊 Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Las Tablas y con capacidad para hasta 8 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/casa-frente-al-mar-playa-el-jobo-las-tablas-los-santos/"
+            },
+            {
+                "nombre": "CASA DE CAMPO MIA, GORGONA",
+                "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Gorgona y con capacidad para hasta 25 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/casa-de-campo-mia-gorgona/"
+            },
+            {
+                "nombre": "CABAÑA EN LA MONTAÑA ALTOS DEL MARÍA C&M",
+                "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Altos del Maria y con capacidad para hasta 19 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/cabana-en-la-montana-altos-del-maria-cm/"
+            },
+            {
+                "nombre": "Casa Vacacional de Playa en Coronado. Temporadas largas y cortas",
+                "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Coronado y con capacidad para hasta 30 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/casa-vacacional-de-playa-en-coronado-temporadas-largas-y-cortas/"
+            },
+            {
+                "nombre": "Villa Paraiso de Montana en Altos del María",
+                "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Altos del Maria y con capacidad para hasta 10 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/villa-paraiso-de-montana-en-altos-del-maria/"
+            },
+            {
+                "nombre": "CASA DE PLAYA VILLAMAR.",
+                "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Avenida Nueva Gorgona y con capacidad para hasta 25 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/casa-de-playa-villamar/"
+            },
+            {
+                "nombre": "Villa Tungara - Hermosa posada frente a la vía Panamericana",
+                "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Bejuco y con capacidad para hasta 45 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/villa-tungara-hermosa-posada-frente-a-la-via-panamericana/"
+            },
+            {
+                "nombre": "Villa del Monarca: Refugio de Montaña con Vistas, Naturaleza y Confort",
+                "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Altos Del Maria y con capacidad para hasta 13 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/villa-del-monarca-refugio-de-montana-con-vistas-naturaleza-y-confort/"
+            },
+            {
+                "nombre": "Coraldreamspty - Playa blanca",
+                "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Playa Blanca y con capacidad para hasta 9 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/coraldreamspty-playa-blanca/"
+            },
+            {
+                "nombre": "Casa Fofo",
+                "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Calle La Ensenada y con capacidad para hasta 8 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/casa-fofo/"
+            },
+            {
+                "nombre": "Casa Croak, Altos del Maria",
+                "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Altos del Maria y con capacidad para hasta 7 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/casa-croak-altos-del-maria/"
+            },
+            {
+                "nombre": "Hacienda Mi Montañita",
+                "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Altos De Cerro Azul y con capacidad para hasta 35 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/hacienda-mi-montanita/"
+            },
+            {
+                "nombre": "Finca Shalom",
+                "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Las Uvas y con capacidad para hasta 15 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/finca-shalom/"
+            },
+            {
+                "nombre": "KasaKai Fantastic Villa, Portobelo, Colón",
+                "descripcion": "🌊 Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Portobelo y con capacidad para hasta 20 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/kasakai-fantastic-villa-portobelo-colon/"
+            },
+            {
+                "nombre": "CasAna - San Carlos",
+                "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en El Higo y con capacidad para hasta 6 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/casana-san-carlos/"
+            },
+            {
+                "nombre": "Villa Águeda Decameron Panamá",
+                "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Decameron y con capacidad para hasta 10 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/villa-agueda-decameron-panama/"
+            },
+            {
+                "nombre": "Gatun Lake Lodge",
+                "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Provincia de Panamá Oeste y con capacidad para hasta 48 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/gatun-lake-lodge/"
+            },
+            {
+                "nombre": "El Rancho de Isa- Escapada con piscina y naturaleza en San Carlos",
+                "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en San Carlos y con capacidad para hasta 8 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/el-rancho-de-isa-escapada-con-piscina-y-naturaleza-en-san-carlos/"
+            },
+            {
+                "nombre": "Villa Iren - Rivera Pacífica",
+                "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Provincia de Coclé y con capacidad para hasta 8 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/villa-iren-rivera-pacifica/"
+            },
+            {
+                "nombre": "Chagres River Lodge - Colón",
+                "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Santa Rosa y con capacidad para hasta 10 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/chagres-river-lodge-colon/"
+            },
+            {
+                "nombre": "Vista Pacífica | Jacuzzi, Piscina, Vistas Únicas y Alexa",
+                "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Las Uvas y con capacidad para hasta 13 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/vista-pacifica-jacuzzi-piscina-vistas-unicas-y-alexa/"
+            },
+            {
+                "nombre": "Cabaña de montaña en Altos del María",
+                "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Altos del Maria y con capacidad para hasta 6 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/cabana-de-montana-en-altos-del-maria/"
+            },
+            {
+                "nombre": "Villa María Josefa - La Laguna de San Carlos",
+                "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en San Carlos y con capacidad para hasta 8 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/villa-maria-josefa-la-laguna-de-san-carlos/"
+            },
+            {
+                "nombre": "Casa Carey Lajas Pty",
+                "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Las Lajas y con capacidad para hasta 10 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/casa-carey-lajas-pty/"
+            },
+            {
+                "nombre": "Casa Luna - Portobelo, Colón",
+                "descripcion": "🌊 Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Portobelo y con capacidad para hasta 15 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/casa-luna-portobelo-colon/"
+            },
+            {
+                "nombre": "Finca San José - Boquete",
+                "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Avenida Circunvalación Volcancito y con capacidad para hasta 12 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/finca-san-jose-boquete/"
+            },
+            {
+                "nombre": "Casa Elalto Panamá",
+                "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en San Carlos y con capacidad para hasta 4 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/casa-elalto-panama/"
+            },
+            {
+                "nombre": "The Azul Heights House",
+                "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Altos de Cerro Azul y con capacidad para hasta 16 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/the-azul-heights-house/"
+            },
+            {
+                "nombre": "Las Nubes de Chica",
+                "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Chica y con capacidad para hasta 4 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/las-nubes-de-chica/"
+            },
+            {
+                "nombre": "Casa de Campo ECO aventura",
+                "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Cerro Azul y con capacidad para hasta 16 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/casa-de-campo-eco-aventura/"
+            },
+            {
+                "nombre": "Espaciosa villa con vista al mar *Las Veraneras* - Vista Mar, San Carlos",
+                "descripcion": "🌊 Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Terraza 2 y con capacidad para hasta 12 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/espaciosa-villa-con-vista-al-mar-las-veraneras-vista-mar-san-carlos/"
+            },
+            {
+                "nombre": "Cabañas Alci - Altos de Cerro azul",
+                "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Altos De Cerro Azul y con capacidad para hasta 2 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/cabanas-alci-altos-de-cerro-azul/"
+            },
+            {
+                "nombre": "Apto. Playa Caracol @tropicalpty – Chame",
+                "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Chame y con capacidad para hasta 4 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/apto-playa-caracol-tropicalpty-chame/"
+            },
+            {
+                "nombre": "Bala Beach Resort – María Chiquita, Colón",
+                "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Playa María Chiquita y con capacidad para hasta 5 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/bala-beach-resort-maria-chiquita-colon/"
+            },
+            {
+                "nombre": "Condo en Playa Caracol Residences & Beach Club",
+                "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Chame y con capacidad para hasta 5 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/condo-en-playa-caracol-residences-beach-club/"
+            },
+            {
+                "nombre": "Casa de playa en Coronado",
+                "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Coronado Mall y con capacidad para hasta 12 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/casa-de-playa-en-coronado/"
+            },
+            {
+                "nombre": "Casa de playa, vista al océano y piscina en la azotea - Costa Esmeralda",
+                "descripcion": "🌊 Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Playa Costa Esmeralda y con capacidad para hasta 25 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/casa-de-playa-vista-al-oceano-y-piscina-en-la-azotea-costa-esmeralda/"
+            },
+            {
+                "nombre": "Moderna Casa en Altos de María",
+                "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Altos del Maria y con capacidad para hasta 10 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/moderna-casa-en-altos-de-maria/"
+            },
+            {
+                "nombre": "Sonny island Resort - Isla Bolaños",
+                "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Balboa y con capacidad para hasta 2 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/sonny-island-resort-isla-bolanos/"
+            },
+            {
+                "nombre": "Bayano Caves-Cabañas & Tipi Campings",
+                "descripcion": "⛰️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Panamá y con capacidad para hasta 2 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/bayano-caves-cabanas-tipi-campings/"
+            },
+            {
+                "nombre": "Casa Carey - Las Lajas",
+                "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Provincia de Chiriquí y con capacidad para hasta 12 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/casa-carey-las-lajas/"
+            },
+            {
+                "nombre": "Apartamento de playa en Gorgona - PH Bahia",
+                "descripcion": "🏖️ Una excelente opción para disfrutar de una escapada en familia o con amigos ubicada en Gorgona y con capacidad para hasta 5 huéspedes.",
+                "enlace": "https://hospedatepanama.com/propiedades/apartamento-de-playa-en-gorgona-ph-bahia/"
+            }
         ];
 
-        // Función para generar el texto con formato (Lógica de Backend/Frontend)
+        // Función ajustada: Se quitó la "🌊" porque ya incluiste tus propios emojis en la descripción
         function generarTexto(propiedad) {
-            return `👋 ¡Hola! Gracias por tu interés en ${propiedad.nombre}.\n\n🌊 ${propiedad.descripcion}\n\n🏡 En el anuncio encontrarás toda la información de la propiedad:\n\n▪️ Tarifas y condiciones\n▪️ Distribución y capacidad\n▪️ Fotos y amenidades\n▪️ Ubicación\n▪️ Enlace de contacto directo con el anfitrión para consultar disponibilidad y realizar tu reserva\n\n🔗 Haz clic en el enlace o en la imagen que aparece al inicio de este mensaje:\n\n${propiedad.enlace}\n\n🌐 Toda la información que necesitas para planificar tu estadía está disponible directamente en Hospédate Panamá.`;
+            return `👋 ¡Hola! Gracias por tu interés en ${propiedad.nombre}.\n\n${propiedad.descripcion}\n\n🏡 En el anuncio encontrarás toda la información de la propiedad:\n\n▪️ Tarifas y condiciones\n▪️ Distribución y capacidad\n▪️ Fotos y amenidades\n▪️ Ubicación\n▪️ Enlace de contacto directo con el anfitrión para consultar disponibilidad y realizar tu reserva\n\n🔗 Haz clic en el enlace o en la imagen que aparece al inicio de este mensaje:\n\n${propiedad.enlace}\n\n🌐 Toda la información que necesitas para planificar tu estadía está disponible directamente en Hospédate Panamá.`;
         }
 
-        // Renderizado del DOM (Frontend Developer)
         const grid = document.getElementById('propiedadesGrid');
         
         function renderizarPropiedades(filtro = "") {
@@ -526,7 +474,6 @@
             renderizarPropiedades(input);
         }
 
-        // Controladores del Modal (UX/UI Designer)
         const modal = document.getElementById('modal');
         const preview = document.getElementById('mensajePreview');
         const btnCopiar = document.getElementById('btnCopiar');
@@ -544,19 +491,17 @@
             modal.style.display = 'none';
         }
 
-        // API de Portapapeles (Software Engineer)
         function copiarAlPortapapeles() {
             navigator.clipboard.writeText(textoActual).then(() => {
                 btnCopiar.innerHTML = '<i class="fa-solid fa-check"></i> ¡Copiado con éxito!';
                 btnCopiar.classList.add('success');
-                setTimeout(cerrarModal, 1500); // Cierra automáticamente después de copiar
+                setTimeout(cerrarModal, 1500); 
             }).catch(err => {
                 console.error('Error al copiar: ', err);
                 alert("Hubo un error al intentar copiar. Por favor, selecciona el texto manualmente.");
             });
         }
 
-        // Inicializar
         renderizarPropiedades();
     </script>
 </body>
